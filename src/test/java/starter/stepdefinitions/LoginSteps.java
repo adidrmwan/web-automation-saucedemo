@@ -13,27 +13,27 @@ public class LoginSteps {
     LoginPage login;
 
     @Given("user on login page")
-    public void userOnLoginPage() throws InterruptedException {
+    public void userOnLoginPage() {
         login.onLoginPage();
     }
 
     @When("user input valid username")
-    public void userInputValidUsername() throws InterruptedException {
+    public void userInputValidUsername(){
         login.inputUserName("standard_user");
     }
 
     @And("user input valid password")
-    public void userInputValidPassword() throws InterruptedException {
+    public void userInputValidPassword() {
         login.inputPassword("secret_sauce");
     }
 
     @And("user click login button")
-    public void userClickLoginButton() throws InterruptedException {
+    public void userClickLoginButton()  {
         login.clickLoginButton();
     }
 
     @Then("user on products page")
-    public void userOnProductsPage() throws InterruptedException {
+    public void userOnProductsPage() {
         login.onProductsPage();
     }
 
