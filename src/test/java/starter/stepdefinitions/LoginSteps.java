@@ -5,6 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
+import org.junit.Assert;
 import starter.pages.LoginPage;
 
 public class LoginSteps {
@@ -12,27 +13,37 @@ public class LoginSteps {
     LoginPage login;
 
     @Given("user on login page")
-    public void userOnLoginPage() {
+    public void userOnLoginPage() throws InterruptedException {
         login.onLoginPage();
     }
 
     @When("user input valid username")
-    public void userInputValidUsername() {
+    public void userInputValidUsername() throws InterruptedException {
         login.inputUserName("standard_user");
     }
 
     @And("user input valid password")
-    public void userInputValidPassword() {
+    public void userInputValidPassword() throws InterruptedException {
         login.inputPassword("secret_sauce");
     }
 
     @And("user click login button")
-    public void userClickLoginButton() {
+    public void userClickLoginButton() throws InterruptedException {
         login.clickLoginButton();
     }
 
     @Then("user on products page")
-    public void userOnProductsPage() {
-        System.out.println("berhasil masuk ke product");
+    public void userOnProductsPage() throws InterruptedException {
+        login.onProductsPage();
+    }
+
+    @When("user input invalid username")
+    public void userInputInvalidUsername() {
+        login.inputInvalidUsername("awan");
+    }
+
+    @Then("user see error message")
+    public void userSeeErrorMessage() {
+        login.errorMessageIsDispalyed();
     }
 }
